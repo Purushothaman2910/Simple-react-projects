@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useEffect ,useRef } from 'react'
 
-const App = () => {
+const PasswordGenerator = () => {
   let [length , setlength] = useState(8)
   let [numbersAllowed , setNumbersAllowed] = useState(false)
   let [charAllowed , setCharAllowed] = useState(false)
@@ -40,6 +40,7 @@ const App = () => {
             id="password" 
             className='outline-none w-full py-1 px-3'
             ref={passwordRef}
+            readOnly
             />
             <button 
             className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'
@@ -96,4 +97,4 @@ const App = () => {
   )
 }
 
-export default App
+export default PasswordGenerator
