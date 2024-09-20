@@ -36,9 +36,18 @@ function Login() {
             value : input.phoneNumber
         }
     ]
+
+    function handleSubmit(e){
+        try {
+            e.preventDefault()
+        } catch (error) {
+            
+        }
+    }
+
     return (
        <FormContainer formTitle={'Sign in'}>
-            <Form  inputElements={inputElements}/>
+            <Form  inputElements={inputElements} onSubmit={handleSubmit}/>
        </FormContainer>
     )
 }
