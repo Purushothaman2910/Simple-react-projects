@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import InputBoxes from '../Components/InputBoxes'
 import '../assets/css/Login.css'
 import FormContainer from '../Components/FormContainer'
 import Form from '../Components/Form'
@@ -38,7 +37,7 @@ function Login() {
         }
     ]
     return (
-       <FormContainer formTitle={'Login'}>
+       <FormContainer formTitle={'Sign in'}>
             <Form  inputElements={inputElements}/>
        </FormContainer>
     )
