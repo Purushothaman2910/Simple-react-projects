@@ -6,12 +6,13 @@ import { THEMES } from './Constants'
 
 const App = () => {
   let [theme  ,setTheme] = useState(THEMES.dark)
+  let newName = 'Velusamy'
   function toggleTheme(){
     console.log(theme);    
     setTheme((preValue)=> (preValue === THEMES.light )? THEMES.dark : THEMES.light )
   }
   return (
-    <ThemeContextProvider value={{ theme , toggleTheme}}>
+    <ThemeContextProvider value={{ name : newName ,theme , toggleTheme}}>
         <UserContextProvider>
           <Profile />
         </UserContextProvider>
