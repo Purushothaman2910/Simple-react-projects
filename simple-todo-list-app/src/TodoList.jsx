@@ -7,6 +7,7 @@ function TodoList() {
 
   function addTodo(todo){
     setTodoList((preValue) => {
+      console.log(todo);      
       return [
         {
           id : Date.now() ,
@@ -18,27 +19,23 @@ function TodoList() {
   }
 
   function deleteTodo(id){
-    setTodoList((preValue) => preValue.filter(item => item.id === id))
+    setTodoList((preValue) => preValue.filter(item => item.id !== id))
   }
 
   function updateTodo(id , todo){    
-    setTodoList((preValue) => preValue.map((item) => (item.id === id) ? {id:id , ...todo } : preValue))
+    setTodoList((preValue) => preValue.map((item) => (item.id === id) ? {id:id , ...todo } : item))
   }
 
   function toggleComplete(id){
-    setTodoList((preValue)=>{
-      return preValue.map((item) => {
-        if(id === item.id){
-          console.log(item);          
-          return {
-            completed : true,
-            ...item
-          }
+    setTodoList((preValue) => {
+      return preValue.map((todo) => {
+        if(todo.id === id){
+          return {...todo , completed : !todo.completed}
         }else{
-          return item
+          return todo
         }
       })
-    })    
+    })
   }
 
   function getTodo(){
@@ -52,8 +49,7 @@ function TodoList() {
     getTodo()
   } ,[])
 
-  useEffect(()=>{
-    console.log(todos);    
+  useEffect(()=>{   
    localStorage.setItem('todos' , JSON.stringify(todos)) 
   } , [todos])
 
