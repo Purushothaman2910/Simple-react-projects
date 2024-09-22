@@ -8,12 +8,12 @@ function TodoList() {
   function addTodo(todo){
     setTodoList((preValue) => {
       console.log(todo);      
-      return [
+      return [        
+        ...preValue ,
         {
           id : Date.now() ,
           ...todo
-        } ,
-        ...preValue
+        } 
       ]
     })
   }
