@@ -2,7 +2,7 @@ import React from 'react'
 import { TodoForm ,TodoItem } from './components/index'
 import { useSelector } from 'react-redux'
 
-function App() {
+function TodoList() {
   let todos = useSelector( state => state['todos']['todos'])
   console.log(todos);  
   return (
@@ -20,4 +20,4 @@ function App() {
   )
 }
 
-export default App
+export default TodoList

@@ -20,10 +20,13 @@ export const TodoSlice = createSlice({
         },
         removeTodo : (state , action) =>{
             state.todos = state.todos.filter(todo => todo.id !== action.payload)
+        },
+        updateTodo : (state , action) =>{
+            state.todos = state.todos.map( todo => (todo.id === action.payload.id) ? {...todo , completed : !todo.completed } : todo )
         }
     }
 })
 
-export const { addTodo , removeTodo } = TodoSlice.actions
+export const { addTodo , removeTodo ,updateTodo } = TodoSlice.actions
 
 export default TodoSlice.reducer
